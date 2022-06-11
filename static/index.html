@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+  <script src='/socket.io/socket.io.js'></script>
+</head>
+<body>
+<div id='v-app'>
+
+</div>
+
+<script type='module'>
+  let username;
+  username = 'abc';
+  const socket = io('http://localhost:4000');
+  console.log({socket})
+  socket.on('chatToClient', (d) => {
+    alert('chatToClient' + d)
+  })
+  setTimeout(() => {
+    socket.emit('chatToServer', '2383333')
+  }, 2000)
+
+
+  // const room = io('http://localhost:3001/room', {
+  //   path: '',
+  // });
+  //
+  // /**
+  //  * Room
+  //  */
+  // room.on('joinedRoom', d => alert(d))
+  // room.on('chatToClient', d => alert(d))
+  // room.emit('joinRoom', 'room1')
+  //
+  // // socket.chat = io('http://localhost:3001/chat', {
+  // //   path: '',
+  // // });
+  // //
+  // // socket.chat.on('chatToClient', (msg) => {
+  // //   receiveChatMessage(msg);
+  // // });
+  //
+  // socket.alerts = io('http://localhost:3002/alert', {
+  //   path: '/fld',
+  // });
+  //
+  // socket.alerts.on('alertToClient', m => alert(m));
+  //
+  // function sendChatMessage(text) {
+  //   // messages.push(text)
+  //   socket.chat.emit('chatToServer', {
+  //     sender: username, message: text,
+  //   });
+  // }
+</script>
+</body>
+</html>

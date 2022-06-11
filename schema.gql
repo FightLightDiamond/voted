@@ -1,0 +1,36 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PollOptionEntity {
+  id: Float!
+  text: String!
+  votes: Float!
+  pollId: Float!
+}
+
+type ErrorResponse {
+  path: String!
+  message: String!
+}
+
+type Query {
+  hello: String!
+}
+
+type Mutation {
+  signup(signupInput: SignupInput!): [ErrorResponse!]
+  login(loginInput: LoginInput!): [ErrorResponse!]
+}
+
+"""New recipe data"""
+input SignupInput {
+  email: String!
+  password: String!
+}
+
+"""New recipe data"""
+input LoginInput {
+  email: String!
+  password: String!
+}
