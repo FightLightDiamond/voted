@@ -25,6 +25,10 @@ import {
   Store,
   StripePaymentProcessor,
 } from '../_common/design-patterns/dependency-inversion/payment';
+import {
+  swimmingFlyMonsterCreator,
+  swimmingMonsterCreator,
+} from '../_common/clean-code/composition';
 
 @Console()
 export class TestConsole {
@@ -119,5 +123,16 @@ export class TestConsole {
     const store2 = new Store(new PaypalPaymentProcessor('Ki'));
     store2.purchaseBike(2);
     store2.purchaseHelmet(2);
+  }
+
+  @Command({ command: 'composition' })
+  async composition() {
+    const o = swimmingMonsterCreator('Snake');
+    o.swim();
+    const d = swimmingFlyMonsterCreator('Duck');
+    d.swim();
+    d.fly();
+    d.attack();
+    d.walk();
   }
 }
