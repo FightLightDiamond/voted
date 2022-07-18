@@ -5,6 +5,16 @@ import {
   AddCommand,
   Calculator,
 } from '../_common/design-patterns/command/calculator';
+import {
+  Rectangle,
+  Square,
+} from '../_common/design-patterns/liskov-substitution/shape';
+import {
+  Duck,
+  FlyBird,
+  Penguin,
+  SwimBird,
+} from '../_common/design-patterns/liskov-substitution/bird';
 
 @Console()
 export class TestConsole {
@@ -46,5 +56,37 @@ export class TestConsole {
     console.log(c1.currentValue);
     c1.undo();
     console.log(c1.currentValue);
+  }
+
+  @Command({ command: 'shape' })
+  async shape() {
+    function increase(rectangle) {
+      rectangle.setWidth(rectangle.width + 1);
+    }
+
+    const r1 = new Rectangle(10, 2);
+    const r2 = new Square(5);
+    increase(r1);
+    increase(r2);
+
+    console.log(r1.area());
+    console.log(r2.area());
+  }
+
+  @Command({ command: 'bird' })
+  async Bird() {
+    function makeBirdFly(bird: FlyBird) {
+      bird.fly();
+    }
+
+    function makeSwimmingBird(bird: SwimBird) {
+      bird.swim();
+    }
+
+    const duck = new Duck();
+    const penguin = new Penguin();
+
+    makeBirdFly(duck);
+    makeSwimmingBird(penguin);
   }
 }
