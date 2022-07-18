@@ -20,6 +20,11 @@ import {
   Turret,
   Wall,
 } from '../_common/design-patterns/interface-segregation/game2';
+import {
+  PaypalPaymentProcessor,
+  Store,
+  StripePaymentProcessor,
+} from '../_common/design-patterns/dependency-inversion/payment';
 
 @Console()
 export class TestConsole {
@@ -104,5 +109,15 @@ export class TestConsole {
     c.move();
     c.attack(w);
     w.takeDamage(6);
+  }
+
+  @Command({ command: 'payment' })
+  async payment() {
+    const store = new Store(new StripePaymentProcessor('Jon'));
+    store.purchaseBike(2);
+    store.purchaseHelmet(2);
+    const store2 = new Store(new PaypalPaymentProcessor('Ki'));
+    store2.purchaseBike(2);
+    store2.purchaseHelmet(2);
   }
 }
