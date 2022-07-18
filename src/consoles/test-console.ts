@@ -15,6 +15,11 @@ import {
   Penguin,
   SwimBird,
 } from '../_common/design-patterns/liskov-substitution/bird';
+import {
+  Character,
+  Turret,
+  Wall,
+} from '../_common/design-patterns/interface-segregation/game2';
 
 @Console()
 export class TestConsole {
@@ -88,5 +93,16 @@ export class TestConsole {
 
     makeBirdFly(duck);
     makeSwimmingBird(penguin);
+  }
+
+  @Command({ command: 'game' })
+  async game() {
+    const t = new Turret('Turret', 5);
+    const c = new Character('Character', 3, 100);
+    const w = new Wall('Wall', 200);
+    t.attack(c);
+    c.move();
+    c.attack(w);
+    w.takeDamage(6);
   }
 }
