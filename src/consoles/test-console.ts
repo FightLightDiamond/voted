@@ -4,31 +4,34 @@ import { Queue } from 'bull';
 import {
   AddCommand,
   Calculator,
-} from '../_common/design-patterns/command/calculator';
+} from '../_common/design-patterns/structural/command/calculator';
 import {
   Rectangle,
   Square,
-} from '../_common/design-patterns/liskov-substitution/shape';
+} from '../_common/design-patterns/solid/liskov-substitution/shape';
 import {
   Duck,
   FlyBird,
   Penguin,
   SwimBird,
-} from '../_common/design-patterns/liskov-substitution/bird';
+} from '../_common/design-patterns/solid/liskov-substitution/bird';
 import {
   Character,
   Turret,
   Wall,
-} from '../_common/design-patterns/interface-segregation/game2';
+} from '../_common/design-patterns/solid/interface-segregation/game2';
 import {
   PaypalPaymentProcessor,
   Store,
   StripePaymentProcessor,
-} from '../_common/design-patterns/dependency-inversion/payment';
+} from '../_common/design-patterns/solid/dependency-inversion/payment';
 import {
   swimmingFlyMonsterCreator,
   swimmingMonsterCreator,
 } from '../_common/clean-code/composition';
+import { zombie } from '../_common/design-patterns/creational/prototype/zombie';
+import { reactive } from '../_common/design-patterns/structural/proxy/reactive';
+import { range } from '../_common/design-patterns/behavioral/iterator/iterator';
 
 @Console()
 export class TestConsole {
@@ -134,5 +137,32 @@ export class TestConsole {
     d.fly();
     d.attack();
     d.walk();
+  }
+
+  @Command({ command: 'zombie' })
+  async zombie() {
+    const e = zombie.eatBrains();
+    zombie.name = 'B';
+    console.log(e);
+    const c = Object.create(zombie, { name: { value: 'chad' } });
+    console.log(c);
+    console.log(c.name);
+    console.log(c.__proto__.name);
+    console.log(Object.getPrototypeOf(c).name);
+  }
+
+  @Command({ command: 'proxy' })
+  async proxy() {
+    console.log(reactive.name);
+    reactive.name = 'He';
+  }
+
+  @Command({ command: 'iterator' })
+  async iterator() {
+    const ns = range(0, 100, 6);
+    console.log({ ns });
+    for (const n of range(0, 100, 15)) {
+      console.log(n);
+    }
   }
 }
