@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer';
-import { confirmEmailLink } from '../../utils/confirmEmailLink';
+import { confirmEmailLink } from '../../_common/utils/confirmEmailLink';
 
 @Injectable()
 export class ConfirmEmailService {

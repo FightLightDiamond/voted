@@ -1,0 +1,15 @@
+export const IConfiguration = {
+  username: 'serviceConfig.mtsUser',
+  password: 'serviceConfig.mtsPass',
+  host: 'serviceConfig.mtsHost',
+  vhost: 'serviceConfig.mtsVHost',
+  node: 1,
+  port: 5671,
+  bookmakerId: 0,
+  limitId: 0,
+  ticketResponseTimeoutLive: 100,
+  ticketResponseTimeoutPrematch: 100,
+  ticketCancellationResponseTimeout: 100,
+  ticketCashoutResponseTimeout: 100,
+  ticketNonSrSettleResponseTimeout: 100,
+};
