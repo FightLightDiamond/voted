@@ -50,7 +50,7 @@ export class TestConsole {
   }
 
   @Command({ command: 'calculator' })
-  async Calculator() {
+  Calculator() {
     const addCommand = new AddCommand(10);
     // let currentValue: number = addCommand.execute(10);
     // console.log({ currentValue });
@@ -76,7 +76,7 @@ export class TestConsole {
   }
 
   @Command({ command: 'shape' })
-  async shape() {
+  shape() {
     function increase(rectangle) {
       rectangle.setWidth(rectangle.width + 1);
     }
@@ -91,7 +91,7 @@ export class TestConsole {
   }
 
   @Command({ command: 'bird' })
-  async Bird() {
+  Bird() {
     function makeBirdFly(bird: FlyBird) {
       bird.fly();
     }
@@ -108,7 +108,7 @@ export class TestConsole {
   }
 
   @Command({ command: 'game' })
-  async game() {
+  game() {
     const t = new Turret('Turret', 5);
     const c = new Character('Character', 3, 100);
     const w = new Wall('Wall', 200);
@@ -119,7 +119,7 @@ export class TestConsole {
   }
 
   @Command({ command: 'payment' })
-  async payment() {
+  payment() {
     const store = new Store(new StripePaymentProcessor('Jon'));
     store.purchaseBike(2);
     store.purchaseHelmet(2);
@@ -129,7 +129,7 @@ export class TestConsole {
   }
 
   @Command({ command: 'composition' })
-  async composition() {
+  composition() {
     const o = swimmingMonsterCreator('Snake');
     o.swim();
     const d = swimmingFlyMonsterCreator('Duck');
@@ -140,7 +140,7 @@ export class TestConsole {
   }
 
   @Command({ command: 'zombie' })
-  async zombie() {
+  zombie() {
     const e = zombie.eatBrains();
     zombie.name = 'B';
     console.log(e);
@@ -152,13 +152,13 @@ export class TestConsole {
   }
 
   @Command({ command: 'proxy' })
-  async proxy() {
+  proxy() {
     console.log(reactive.name);
     reactive.name = 'He';
   }
 
   @Command({ command: 'iterator' })
-  async iterator() {
+  iterator() {
     const ns = range(0, 100, 6);
     console.log({ ns });
     for (const n of range(0, 100, 15)) {

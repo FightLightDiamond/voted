@@ -3,7 +3,9 @@ export class Settings {
 
   public readonly mode = 'dark';
 
-  private constructor() {}
+  private constructor() {
+    console.log('Settings');
+  }
 
   /**
    * Khởi tạo 1 lần duy nhất

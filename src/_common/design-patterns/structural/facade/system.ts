@@ -3,8 +3,13 @@ class PlumbingSystem {
     console.log(v);
   }
 
-  turnOn() {}
-  turnOff() {}
+  turnOn() {
+    console.log('turnOn');
+  }
+
+  turnOff() {
+    console.log('turnOff');
+  }
 }
 
 class ElectricalSystem {
@@ -12,8 +17,13 @@ class ElectricalSystem {
     console.log(v);
   }
 
-  turnOn() {}
-  turnOff() {}
+  turnOn() {
+    console.log('turnOn');
+  }
+
+  turnOff() {
+    console.log('turnOff');
+  }
 }
 
 class House {
