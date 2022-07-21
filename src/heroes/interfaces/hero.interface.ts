@@ -7,7 +7,6 @@ export interface IHero {
   spd: number;
   // action
   attack: (targetEntity: IHero, skill) => void;
-  info();
   // Special stats
   crit_rate?: number;
   crit_dmg?: number;
@@ -120,8 +119,8 @@ export class War {
   }
 
   info() {
-    console.log(this.a.info());
-    console.log(this.b.info());
+    console.log(this.a);
+    console.log(this.b);
     console.log('Who Win?');
   }
 

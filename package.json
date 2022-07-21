@@ -143,6 +143,6 @@
     "testEnvironment": "node"
   },
   "lint-staged": {
-    "*.ts": "eslint --fix"
+    "*.ts": ["yarn format", "eslint --fix"]
   }
 }

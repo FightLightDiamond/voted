@@ -28,6 +28,7 @@ import { IpMiddleware } from './_common/middlewares/ip.middleware';
 import { Producer } from './broker/producer';
 import { Broker } from './broker/broker';
 import { Consumer } from './broker/consumer';
+// import { HeroProviders } from "./heroes/hero.providers";
 
 @Module({
   imports: [
@@ -135,6 +136,7 @@ import { Consumer } from './broker/consumer';
     Producer,
     Broker,
     Consumer,
+    // ...HeroProviders,
   ],
 })
 export class AppModule {
